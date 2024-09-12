@@ -4,10 +4,10 @@ function clock() {
         let menit = new Date().getMinutes();
         let detik = new Date().getSeconds();
 
-        let hari = new Date().getUTCDay();
-        let tanggal = new Date().getUTCDate();
-        let bulan = new Date().getUTCMonth() + 1;
-        let tahun = new Date().getUTCFullYear();
+        let hari = new Date().getDay();
+        let tanggal = new Date().getDate();
+        let bulan = new Date().getMonth() + 1;
+        let tahun = new Date().getFullYear();
 
         switch (hari) {
             case 0:
@@ -71,7 +71,9 @@ function clock() {
                 bulan = "Desember";
                 break;
         }
-
+        if (jam === 24 || jam < 10) {
+            jam = "0" + jam;
+        }
         if (menit < 10) {
             menit = "0" + menit;
         }
